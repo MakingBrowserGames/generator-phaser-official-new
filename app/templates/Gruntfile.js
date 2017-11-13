@@ -1,4 +1,4 @@
-// Generated on 2014-03-28 using generator-phaser-official-new 0.0.8-rc-2
+// Generated on 2017-11-11 using generator-phaser-official-new 0.0.8-rc-2
 'use strict';
 var config = require('./config.json');
 var _ = require('underscore');

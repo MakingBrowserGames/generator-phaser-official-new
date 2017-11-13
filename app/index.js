@@ -6,17 +6,17 @@ var chalk = require('chalk');
 
 
 var PhaserGenerator = yeoman.generators.Base.extend({
-  init: function () {
+  init: function() {
     this.pkg = require('../package.json');
 
-    this.on('end', function () {
+    this.on('end', function() {
       if (!this.options['skip-install']) {
         this.installDependencies();
       }
     });
   },
 
-  askFor: function () {
+  askFor: function() {
     var done = this.async();
 
     // have Yeoman greet the user
@@ -31,24 +31,30 @@ var PhaserGenerator = yeoman.generators.Base.extend({
         default: 'phaser game'
       },
       {
+        name: 'phaserOfficial',
+        message: 'Do you want to use Phaser offical, instead of Phaser CE? (yes/no)',
+        default: 'yes'
+      },
+      {
         name: 'phaserVersion',
         message: 'Which Phaser version would you like to use?',
-        default: '2.1.3'
+        default: '2.6.2'
       },
       {
         name: 'gameWidth',
         message: 'Game Display Width',
-        default: 800
+        default: 480
       },
       {
         name: 'gameHeight',
         message: 'Game Display Height',
-        default: 600
+        default: 320
       }
     ];
 
-    this.prompt(prompts, function (props) {
+    this.prompt(prompts, function(props) {
       this.projectName = props.projectName
+      this.phaserOfficial = props.phaserOfficial
       this.phaserVersion = props.phaserVersion;
       this.gameHeight = props.gameHeight;
       this.gameWidth = props.gameWidth;
@@ -59,26 +65,38 @@ var PhaserGenerator = yeoman.generators.Base.extend({
 
 
 
-  app: function () {
+  app: function() {
     // base files
-    this.template('Gruntfile.js','Gruntfile.js');
+    this.template('Gruntfile.js', 'Gruntfile.js');
 
+    if (this.phaserOfficial == 'yes') {
+      this.template('_bower.json', 'bower.json');
+    }
+    else {
+      this.template('_bower_phaser-ce.json', 'bower.json');
+    }
+    this.template('_config.json', 'config.json');
+    this.template('_package.json', 'package.json');
+
+    // HTML and CSS
     this.template('css/_styles.css', 'css/styles.css');
-    this.template('_bower.json', 'bower.json');
-    this.template('_config.json','config.json');
-    this.template('_package.json','package.json');
     this.template('_index.html', 'index.html');
 
-
-    // game files
+    // JS game files
     this.copy('game/states/boot.js');
     this.copy('game/states/preload.js');
     this.copy('game/states/menu.js');
     this.copy('game/states/play.js');
     this.copy('game/states/gameover.js');
-    this.copy('assets/preloader.gif');
-    this.copy('assets/yeoman-logo.png');
     this.copy('templates/_main.js.tpl');
+
+    // Assets files
+    this.copy('assets/LoadingBar_Outer.png');
+    this.copy('assets/LoadingBar_Inner.png');
+    this.copy('assets/yeoman-logo.png');
+    this.copy('assets/graphics/rotate-phone.png');
+    this.copy('aassets/fonts/GrilledCheeseBTNToasted.woff');
+
 
   },
   createBootstrapper: function() {
@@ -88,11 +106,11 @@ var PhaserGenerator = yeoman.generators.Base.extend({
     stateFiles.forEach(function(file) {
       var state = file.match(statePattern)[1];
       if (!!state) {
-        this.gameStates.push({shortName: state, stateName: this._.capitalize(state) + 'State'});
+        this.gameStates.push({ shortName: state, stateName: this._.capitalize(state) + 'State' });
       }
     }, this);
 
-    this.template('game/_main.js','game/main.js');
+    this.template('game/_main.js', 'game/main.js');
   },
   runtime: function() {
     this.copy('bowerrc', '.bowerrc');
@@ -100,7 +118,7 @@ var PhaserGenerator = yeoman.generators.Base.extend({
 
 
   },
-  projectfiles: function () {
+  projectfiles: function() {
     this.copy('editorconfig', '.editorconfig');
     this.copy('jshintrc', '.jshintrc');
   }
