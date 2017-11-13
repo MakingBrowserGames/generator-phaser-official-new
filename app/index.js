@@ -96,6 +96,8 @@ var PhaserGenerator = yeoman.generators.Base.extend({
     this.copy('assets/yeoman-logo.png');
     this.copy('assets/graphics/rotate-phone.png');
     this.copy('assets/fonts/GrilledCheeseBTNToasted.woff');
+    this.copy('assets/fonts/font.png');
+    this.copy('assets/fonts/font.fnt');
 
 
   },
