@@ -28,7 +28,7 @@ Boot.prototype = {
 		b.pageAlignVertically = !0;
 		b.enterIncorrectOrientation.add(this.onEnterIncorrectOrientation, this);
 		b.leaveIncorrectOrientation.add(this.onLeaveIncorrectOrientation, this);
-		b.setScreenSize(!0);
+		b.updateLayout(!0);
 		
 		// this.stage.backgroundColor = 11193204; // green
 		this.stage.backgroundColor = 87654321; // lightblue
