@@ -47,8 +47,8 @@ Preload.prototype = {
     };
     this.loadingText = this.game.add.text(0, 0, "0%", style);
     this.loadingText.anchor.set(.5, .5);
-    this.loadingText.position.set(this.game.world.width / 2,
-      this.game.world.height / 2 + 180);
+    this.loadingText.position.set(this.game.width / 2 - .5,
+      this.game.height / 2 + 55);
     this.loadingText.setShadow(2, 2, "#666666", 2);
     this.loadingText.update();
   },

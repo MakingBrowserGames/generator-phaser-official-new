@@ -28,7 +28,7 @@ var PhaserGenerator = yeoman.generators.Base.extend({
     var prompts = [{
         name: 'projectName',
         message: 'What is the name of your project?',
-        default: 'phaser game'
+        default: 'phaser-game'
       },
       {
         name: 'phaserOfficial',
@@ -43,12 +43,12 @@ var PhaserGenerator = yeoman.generators.Base.extend({
       {
         name: 'gameWidth',
         message: 'Game Display Width',
-        default: 480
+        default: 640
       },
       {
         name: 'gameHeight',
         message: 'Game Display Height',
-        default: 320
+        default: 832
       }
     ];
 
