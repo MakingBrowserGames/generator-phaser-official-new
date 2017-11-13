@@ -1,6 +1,6 @@
 {
   "name": "generator-phaser-official-new",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Yeoman Generator for the Phaser Game framework. Includes state and prefab generators",
   "license": "MIT",
   "main": "app/index.js",
