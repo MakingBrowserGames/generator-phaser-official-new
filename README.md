@@ -1,4 +1,4 @@
-# generator-phaser-official
+# generator-phaser-official-new
 
 
 > [Yeoman](http://yeoman.io) generator
@@ -27,7 +27,7 @@ Yeoman travels light. He didn't pack any generators when he moved in. You can th
 To install generator-phaser from npm, run:
 
 ```
-$ npm install -g generator-phaser-official
+$ npm install -g generator-phaser-official-new
 ```
 
 Create your folder where you want your game to be located and finally, initiate the generator inside that folder:

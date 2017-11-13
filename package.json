@@ -1,10 +1,10 @@
 {
-  "name": "generator-phaser-official",
+  "name": "generator-phaser-official-new",
   "version": "0.0.10",
   "description": "Yeoman Generator for the Phaser Game framework. Includes state and prefab generators",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "codevinsky/generator-phaser-official",
+  "repository": "nguoianphu/generator-phaser-official-new",
   "keywords": [
     "HTML5",
     "game",
@@ -19,9 +19,9 @@
     "yeoman-generator"
   ],
   "author": {
-    "name": "Jeremy Dowell",
-    "email": "jeremy@codevinsky.com",
-    "url": "https://github.com/codevinsky"
+    "name": "Vo Hung Tuan",
+    "email": "nguoianphu@gmail.com",
+    "url": "https://github.com/nguoianphu"
   },
   "engines": {
     "node": ">=0.10.0"
