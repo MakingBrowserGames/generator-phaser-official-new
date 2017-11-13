@@ -33,7 +33,7 @@ $ npm install -g generator-phaser-official-new
 Create your folder where you want your game to be located and finally, initiate the generator inside that folder:
 
 ```
-$ yo phaser-official
+$ yo phaser-official-new
 ```
 
 ### Subgenerators
@@ -41,11 +41,11 @@ $ yo phaser-official
 This generator also comes with two sub-generators:
 
 ``` 
-$ yo phaser-official:state "stateName"
+$ yo phaser-official-new:state "stateName"
 ```
 
 ```
-$ yo phaser-official:prefab "prefabName"
+$ yo phaser-official-new:prefab "prefabName"
 ```
 
 ### Built in server
