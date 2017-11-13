@@ -28,14 +28,14 @@ module.exports = function (grunt) {
     connect: {
       server: {
         options: {
-          port: 9000,
+          port: 8080,
           base: 'dist'
         }
       }
     },
     open: {
       server: {
-        path: 'http://localhost:9000',
+        path: 'http://localhost:8080',
       }
     },
     copy: {
