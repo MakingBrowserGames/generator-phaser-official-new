@@ -6,24 +6,18 @@ _.str = require('underscore.string');
 
 // Mix in non-conflict functions to Underscore namespace if you want
 _.mixin(_.str.exports());
- 
-module.exports = function (grunt) {
+
+module.exports = function(grunt) {
   // load all grunt tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
- 
+
   grunt.initConfig({
     watch: {
-      scripts: {
-        files: [
-            'game/**/*.js',
-            '!game/main.js'
-        ],
-        options: {
-          spawn: false,
-          livereload: true
-        },
-        tasks: ['build']
-      }
+      files: [
+        'game/**/*.js',
+        '!game/main.js'
+      ],
+      tasks: ['build']
     },
     connect: {
       server: {
@@ -57,11 +51,11 @@ module.exports = function (grunt) {
       }
     }
   });
-  
-  grunt.registerTask('build', ['buildBootstrapper', 'browserify','copy']);
+
+  grunt.registerTask('build', ['buildBootstrapper', 'browserify', 'copy']);
   grunt.registerTask('serve', ['build', 'connect:server', 'open', 'watch']);
   grunt.registerTask('prod', ['build', 'copy']);
-  
+
   grunt.registerTask('default', ['serve']);
 
 
@@ -72,13 +66,13 @@ module.exports = function (grunt) {
     stateFiles.forEach(function(file) {
       var state = file.match(statePattern)[1];
       if (!!state) {
-        gameStates.push({shortName: state, stateName: _.capitalize(state) + 'State'});
+        gameStates.push({ shortName: state, stateName: _.capitalize(state) + 'State' });
       }
     });
     config.gameStates = gameStates;
     console.log(config);
     var bootstrapper = grunt.file.read('templates/_main.js.tpl');
-    bootstrapper = grunt.template.process(bootstrapper,{data: config});
+    bootstrapper = grunt.template.process(bootstrapper, { data: config });
     grunt.file.write('game/main.js', bootstrapper);
   });
 };
