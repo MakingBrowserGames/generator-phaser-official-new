@@ -11,7 +11,10 @@ var PhaserGenerator = yeoman.generators.Base.extend({
 
     this.on('end', function() {
       if (!this.options['skip-install']) {
-        this.installDependencies();
+        this.installDependencies({
+          bower: false,
+          npm: true
+        });
       }
     });
   },
