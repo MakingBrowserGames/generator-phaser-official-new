@@ -70,13 +70,13 @@ var PhaserGenerator = yeoman.generators.Base.extend({
     this.template('Gruntfile.js', 'Gruntfile.js');
 
     if (this.phaserOfficial == 'yes') {
-      this.template('_bower.json', 'bower.json');
+      this.template('_package.json', 'package.json');
     }
     else {
-      this.template('_bower_phaser-ce.json', 'bower.json');
+      this.template('_package-ce.json', 'package.json');
     }
     this.template('_config.json', 'config.json');
-    this.template('_package.json', 'package.json');
+    // this.template('_package.json', 'package.json');
 
     // HTML and CSS
     this.template('css/_styles.css', 'css/styles.css');
