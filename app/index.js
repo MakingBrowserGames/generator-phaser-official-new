@@ -115,7 +115,6 @@ var PhaserGenerator = yeoman.generators.Base.extend({
     this.template('game/_main.js', 'game/main.js');
   },
   runtime: function() {
-    this.copy('bowerrc', '.bowerrc');
     this.copy('gitignore', '.gitignore');
 
 
